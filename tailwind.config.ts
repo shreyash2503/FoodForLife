@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      dropShadow: {
+        "3xl": "0 25px 25px rgba(0, 0, 0, 0.15)",
+      },
+      colors: {
+        white: "#ffffff",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
