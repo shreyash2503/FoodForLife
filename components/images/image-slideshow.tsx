@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -33,17 +34,17 @@ export default function ImageSlideshow() {
   }, []);
 
   return (
-    <div className="relative w-full h-full rounded-lg overflow-hidden shadow-xl shadow-white">
+    <div className="relative w-full h-full rounded-lg overflow-hidden">
       {images.map((image, index) => (
         <Image
           key={index}
           src={image.image}
-          className={
-            "w-full h-full object-cover absolute top-0 left-0 scale-[1.1] translate-x-[-1rem] rotate-[-5deg] transition-all duration-[0.5s] ease-in-out" &&
-            index === currentImageIndex
-              ? "z-1 opacity-100 scale-[1] translate-x-[0] rotate-0"
-              : ""
-          }
+          className={`w-full h-full object-cover absolute top-0 left-0 transform scale-[1.1] translate-x-[-1rem] rotate-[-5deg] transition-all duration-[0.5s] ease-in-out
+            ${
+              index === currentImageIndex
+                ? "z-[1] opacity-100 scale-[1] translate-x-[0] rotate-0"
+                : ""
+            }`}
           alt={image.alt}
         />
       ))}

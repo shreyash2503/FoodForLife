@@ -40,7 +40,7 @@ export default function Home() {
         </div>
       </header>
       <main className="flex justify-center items-center flex-col">
-        <section className="flex flex-col text-[#ddd6cb] font-[1.5rem] max-w-[50rem] w-[90%] mx-[rem] my-auto text-center">
+        <section className="flex flex-col text-[#ddd6cb] font-[1.5rem] max-w-[50rem] w-[90%] mx-[2.5rem] my-[5rem] text-center">
           <h2 className="text-4xl m-5">How it works</h2>
           <p className="text-2xl">
             Food For Life is a platform for foodies to share their favorite
@@ -53,16 +53,16 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="flex flex-col text-[#ddd6cb] font-[1.5rem] max-w-[50rem] w-[90%] mx-[rem] my-auto text-center">
-          <h2 className="text-4xl m-5">Why NextLevel Food?</h2>
+        <section className="flex flex-col text-[#ddd6cb] font-[1.5rem] max-w-[50rem] w-[90%] mx-[2.5rem] my-auto text-center">
+          <h2 className="text-4xl m-5">Why Food For Life?</h2>
           <p className="text-2xl m-2">
-            NextLevel Food is a platform for foodies to share their favorite
+            Food For Life is a platform for foodies to share their favorite
             recipes with the world. It&apos;s a place to discover new dishes,
             and to connect with other food lovers.
           </p>
           <p className="text-2xl m-2">
-            NextLevel Food is a place to discover new dishes, and to connect
-            with other food lovers.
+            Food For Life is a place to discover new dishes, and to connect with
+            other food lovers.
           </p>
         </section>
       </main>
