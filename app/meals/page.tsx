@@ -2,10 +2,15 @@ import { MealItemProps } from "@/components/meals/meal-item";
 import MealsGrid from "@/components/meals/meals-grid";
 import { getMeals } from "@/lib/meals";
 import Link from "next/link";
+import { Suspense } from "react";
 
-export default async function MealPage() {
+async function Meals() {
   const meals = await getMeals();
 
+  return <MealsGrid meals={meals as MealItemProps[]} />;
+}
+
+export default function MealPage() {
   return (
     <>
       <header className="gap-3 mt-[3rem] mr-auto mb-[5rem] ml-auto w-[90%] text-[#ddd6cb] text-[1.5rem]">
@@ -31,7 +36,7 @@ export default async function MealPage() {
             style={{
               background: "linear-gradient(90deg, #f9572a, #ff9b05)",
             }}
-            className="inline-block mt-[1rem] py-[0.5rem] px-[1rem] text-[#ffffff] font-bold decoration-[none] hover:underline transition-all duration-0.3s ease-in-out"
+            className=" rounded-lg inline-block mt-[1rem] py-[0.5rem] px-[1rem] text-[#ffffff] font-bold decoration-[none] hover:underline transition-all duration-0.3s ease-in-out"
             href="/meals/share"
           >
             Share Your Favorite Recipe
@@ -39,7 +44,13 @@ export default async function MealPage() {
         </p>
       </header>
       <main className="flex items-center justify-center">
-        <MealsGrid meals={meals as MealItemProps[]}></MealsGrid>
+        <Suspense
+          fallback={
+            <p className="text-[#ffffff] text-center">Fetching Meals...</p>
+          }
+        >
+          <Meals />
+        </Suspense>
       </main>
     </>
   );

@@ -43,7 +43,7 @@ export function MealItem({
             style={{
               background: "linear-gradient(90deg, #f9572a, #ff9b05)",
             }}
-            className="inline-block mt-[1rem] py-[0.5rem] px-[1rem] text-[#ffffff] font-bold no-underline hover:underline transition-all duration-0.3s ease-in-out"
+            className="inline-block rounded-lg mt-[1rem] py-[0.5rem] px-[1rem] text-[#ffffff] font-bold no-underline hover:underline transition-all duration-0.3s ease-in-out"
             href={`/meals/${slug}`}
           >
             View Details
