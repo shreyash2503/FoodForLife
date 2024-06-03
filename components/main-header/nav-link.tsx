@@ -14,7 +14,7 @@ export default function NavLink({
     <Link
       href={href}
       style={
-        path.startsWith("/community")
+        path.startsWith(href)
           ? {
               background: "linear-gradient(90deg, #ff8a05, #f9b331",
               backgroundClip: "text",
