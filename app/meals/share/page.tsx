@@ -1,4 +1,11 @@
+"use client";
+import ImagePicker from "@/components/meals/image-picker";
+import { shareMeal } from "@/lib/actions";
+import MealsFormSubmitButton from "@/components/meals/meals-form-submit-button";
+import { useFormState } from "react-dom";
+
 export default function ShareMealPage() {
+  const [state, formAction] = useFormState(shareMeal, { message: "" });
   return (
     <>
       <header className="gap-[3rem] mt-[3rem] mr-auto mb-[5rem] ml-auto w-[90%] max-w-[75rem] text-[#ddd6cb] text-[1.5rem]">
@@ -18,7 +25,7 @@ export default function ShareMealPage() {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className="w-[90%] max-w-[75rem] my-[3rem] mx-auto">
-        <form className="max-w-[50rem]">
+        <form className="max-w-[50rem] sm:flex sm:flex-col" action={formAction}>
           <div className="flex gap-[1rem]">
             <p className="w-[100%]">
               <label
@@ -96,18 +103,12 @@ export default function ShareMealPage() {
               required
             ></textarea>
           </p>
-          IMAGE PICKER
+          <ImagePicker label="Image Picker" name="image-picker" />
           <p className="text-right">
-            <button
-              type="submit"
-              style={{
-                background: "linear-gradient(90deg, #f9572a, #ff9b05)",
-                boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
-              }}
-              className="border-0 py-[0.75rem] px-[2rem] border-none text-[#ffffff] rounded-[2px] cursor-pointer font-sans text-[1.25rem] hover:opacity-70 transition-all duration-0.3s ease-in-out focus:outline-none focus:ring-[#f9572a] focus:border-[#f9572a] disabled:opacity-50 disabled:cursor-not-allowed hover:disabled:opacity-100 hover:disabled:cursor-pointer focus:disabled:opacity-100 focus:disabled:cursor-pointer"
-            >
-              Share Meal
-            </button>
+            {state.message !== "" && (
+              <p className="text-red-600">{state.message}</p>
+            )}
+            <MealsFormSubmitButton />
           </p>
         </form>
       </main>
