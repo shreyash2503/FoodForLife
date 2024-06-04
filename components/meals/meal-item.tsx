@@ -29,7 +29,12 @@ export function MealItem({
     >
       <header>
         <div className="relative h-[15rem]">
-          <Image className="object-cover" src={image} alt={title} fill />
+          <Image
+            className="object-cover"
+            src={`https://shreyash-food-for-life-s3-bucket.s3.us-west-2.amazonaws.com/${image}`}
+            alt={title}
+            fill
+          />
         </div>
         <div className="pt-[0.5rem] pr-[1rem] pb-[0] pl-[1rem]">
           <h2 className="m-0 text-[1.5rem] font-sans">{title}</h2>

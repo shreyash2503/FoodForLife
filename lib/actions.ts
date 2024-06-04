@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
 import { mealSchema } from "./schemas";
+import { revalidatePath } from "next/cache";
 
 //& All the function inside this file will automatically be treated as server actions
 
@@ -24,5 +25,6 @@ export async function shareMeal(prevState: any, formData: FormData) {
     };
   }
   await saveMeal(meal);
+  revalidatePath("/meals");
   redirect("/meals");
 }
